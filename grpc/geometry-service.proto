@@ -1,0 +1,16 @@
+
+syntax = "proto3";
+
+package mathematics;
+
+message ComputeLengthRequest {
+  repeated int32 coordinates = 1;
+}
+
+message ComputeLengthResponse {
+  double length = 1;
+}
+
+service Geometry {
+  rpc ComputeLength(ComputeLengthRequest) returns (ComputeLengthResponse) {}
+}

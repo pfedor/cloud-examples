@@ -1,0 +1,15 @@
+
+syntax = "proto3";
+
+package zwierzeta;
+
+message Gatunek {
+  string nazwa = 1;
+  int32 liczba_nog = 2;
+  repeated string odglosy = 3;
+}
+
+message Zwierze {
+  Gatunek gatunek = 1;
+  string imie = 2;
+}

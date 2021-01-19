@@ -1,0 +1,40 @@
+
+syntax = "proto3";
+
+package mathematics;
+
+message LengthComputationResult {
+  double length = 1;
+}
+
+message ScheduleLengthComputationRequest {
+  string id = 1;
+  repeated int32 coordinates = 2;
+  int64 version = 3;
+}
+
+message ScheduleLengthComputationResponse {}
+
+message LookupLengthRequest {
+  string id = 1;
+}
+
+message LookupLengthResponse {
+  double length = 1;
+  int64 version = 2;
+
+  // Only present if the computation failed, in which case 'length' will be 0.
+  LengthComputationErrorDetails error_details = 3;
+}
+
+message LengthComputationErrorDetails {
+  int32 code = 1;
+  string message = 2;
+}
+
+service Geometry {
+  rpc ScheduleLengthComputation(ScheduleLengthComputationRequest)
+      returns (ScheduleLengthComputationResponse) {}
+
+  rpc LookupLength(LookupLengthRequest) returns (LookupLengthResponse) {}
+}

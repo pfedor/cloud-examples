@@ -1,0 +1,7 @@
+
+CREATE TABLE computed_length (
+  id STRING(MAX),
+  version INT64 NOT NULL,
+  length FLOAT64,
+  error_details BYTES(MAX)
+) PRIMARY KEY (id);

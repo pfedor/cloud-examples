@@ -1,0 +1,29 @@
+
+syntax = "proto3";
+
+package mathematics;
+
+message ComputeSquareRequest {
+  // The input must be non-negative and less or equal to 1000.
+  int32 number = 1;
+}
+
+message ComputeSquareResponse {
+  int64 square = 1;
+}
+
+message ComputeCubeRequest {
+  // The input must be non-negative and less or equal to 1000.
+  int32 number = 1;
+}
+
+message ComputeCubeResponse {
+  int64 cube = 1;
+}
+
+service Arithmetic {
+  rpc ComputeSquare(ComputeSquareRequest) returns (ComputeSquareResponse) {}
+
+  rpc ComputeCube(ComputeCubeRequest) returns (ComputeCubeResponse) {}
+}
+

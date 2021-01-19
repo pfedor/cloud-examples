@@ -1,0 +1,16 @@
+
+syntax = "proto3";
+
+package mathematics;
+
+message ScheduleLengthComputationRequest {
+  string id = 1;
+  repeated int32 coordinates = 2;
+}
+
+message ScheduleLengthComputationResponse {}
+
+service Geometry {
+  rpc ScheduleLengthComputation(ScheduleLengthComputationRequest)
+      returns (ScheduleLengthComputationResponse) {}
+}
